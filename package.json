@@ -1,0 +1,57 @@
+{
+  "name": "gulp-cloudinary-upload",
+  "version": "1.0.0",
+  "description": "A Gulp plugin to upload images to Cloudinary",
+  "main": "index.js",
+  "scripts": {
+    "format": "xo --fix",
+    "test": "xo && ava"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheDancingCode/gulp-cloudinary-upload.git"
+  },
+  "keywords": [
+    "gulpplugin",
+    "cloudinary",
+    "upload",
+    "image"
+  ],
+  "author": "Thomas Vantuycom <thomasvantuycom@protonmail.com> (https://github.com/TheDancingCode)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TheDancingCode/gulp-cloudinary-upload/issues"
+  },
+  "homepage": "https://github.com/TheDancingCode/gulp-cloudinary-upload#readme",
+  "engines": {
+    "node": ">=6"
+  },
+  "files": [
+    "index.js"
+  ],
+  "dependencies": {
+    "cloudinary": "^1.11.0",
+    "plugin-error": "1.0.1",
+    "through2": "2.0.3",
+    "vinyl": "2.1.0",
+    "vinyl-file": "^3.0.0"
+  },
+  "devDependencies": {
+    "ava": "^0.25.0",
+    "dotenv": "^6.0.0",
+    "event-stream": "^3.3.4",
+    "p-event": "^2.0.0",
+    "uuid": "^3.2.1",
+    "xo": "^0.21.1"
+  },
+  "xo": {
+    "space": 2,
+    "prettier": true,
+    "rules": {
+      "camelcase": 0
+    }
+  },
+  "ava": {
+    "require": "dotenv/config"
+  }
+}
