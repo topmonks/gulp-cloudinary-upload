@@ -1,4 +1,4 @@
-# gulp-cloudinary-upload [![Build Status](https://travis-ci.org/TheDancingCode/gulp-cloudinary-upload.svg?branch=master)](https://travis-ci.org/TheDancingCode/gulp-cloudinary-upload) [![npm](https://img.shields.io/npm/v/gulp-cloudinary-upload.svg)](https://www.npmjs.com/package/gulp-cloudinary-upload)
+# gulp-cloudinary-upload [![Build Status](https://travis-ci.org/TheDancingCode/gulp-cloudinary-upload.svg?branch=master)](https://travis-ci.org/TheDancingCode/gulp-cloudinary-upload) [![npm](https://img.shields.io/npm/v/gulp-cloudinary-upload.svg)](https://www.npmjs.com/package/gulp-cloudinary-upload) [![Greenkeeper badge](https://badges.greenkeeper.io/TheDancingCode/gulp-cloudinary-upload.svg)](https://greenkeeper.io/)
 
 > Batch upload images to Cloudinary
 
