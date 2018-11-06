@@ -1,11 +1,12 @@
 {
   "name": "gulp-cloudinary-upload",
-  "version": "1.0.1",
+  "version": "0.0.0-development",
   "description": "A Gulp plugin to upload images to Cloudinary",
   "main": "index.js",
   "scripts": {
     "format": "xo --fix",
-    "test": "xo && ava"
+    "test": "xo && ava",
+    "semantic-release": "semantic-release"
   },
   "repository": {
     "type": "git",
@@ -40,6 +41,7 @@
     "ava": "^0.25.0",
     "dotenv": "^6.0.0",
     "p-event": "^2.0.0",
+    "semantic-release": "^15.10.8",
     "uuid": "^3.2.1",
     "xo": "^0.23.0"
   },
