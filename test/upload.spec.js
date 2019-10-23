@@ -1,8 +1,8 @@
 import {join} from 'path';
+import {readFileSync, createReadStream} from 'fs';
 import test from 'ava';
 import uuidv4 from 'uuid/v4';
 import pEvent from 'p-event';
-import {readFileSync, createReadStream} from 'fs';
 import {v2 as cloudinary} from 'cloudinary';
 import Vinyl from 'vinyl';
 import m from '..';
@@ -40,7 +40,7 @@ test.afterEach(async t => {
   try {
     await cloudinary.uploader.destroy(t.context.publicID);
     t.pass();
-  } catch (error) {
+  } catch {
     t.fail();
   }
 });
@@ -54,7 +54,7 @@ test('uploads images in Buffer mode', async t => {
   try {
     await cloudinary.api.resource(file.stem);
     t.pass();
-  } catch (error) {
+  } catch {
     t.fail();
   }
 });
@@ -71,7 +71,7 @@ test('uploads images in Streaming mode', async t => {
   try {
     await cloudinary.api.resource(file.stem);
     t.pass();
-  } catch (error) {
+  } catch {
     t.fail();
   }
 });

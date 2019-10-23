@@ -1,8 +1,8 @@
 import {join} from 'path';
 import test from 'ava';
 import pEvent from 'p-event';
-import m from '..';
 import Vinyl from 'vinyl';
+import m from '..';
 
 const uploadResponse = {
   public_id: 'bluepixel',
