@@ -158,6 +158,13 @@ params: {
 }
 ```
 
+##### folderResolver
+
+Type: `Function`<br>
+Default: `undefined`
+
+Function for generating `params.folder` influenced by original file path.
+
 ### cloudinaryUpload.manifest([options])
 
 #### options
