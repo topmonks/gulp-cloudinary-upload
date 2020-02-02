@@ -19,7 +19,7 @@ module.exports = options => {
     cloudinary.config(options.config);
   }
 
-  if (typeof options.keyResolver !== "function") {
+  if (typeof options.keyResolver !== 'function') {
     options.keyResolver = x => path.basename(x);
   }
 
@@ -28,8 +28,8 @@ module.exports = options => {
       public_id: path.basename(file.path, path.extname(file.path))
     });
 
-    let manifestKey = options.keyResolver(file.path);
-    if (typeof options.folderResolver === "function") {
+    const manifestKey = options.keyResolver(file.path);
+    if (typeof options.folderResolver === 'function') {
       uploadParams.folder = options.folderResolver(file.path);
     }
 
