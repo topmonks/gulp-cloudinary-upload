@@ -19,12 +19,17 @@ module.exports = options => {
     cloudinary.config(options.config);
   }
 
+  if (typeof options.keyResolver !== "function") {
+    options.keyResolver = x => path.basename(x);
+  }
+
   return through.obj((file, enc, cb) => {
     const uploadParams = Object.assign({overwrite: false}, options.params, {
       public_id: path.basename(file.path, path.extname(file.path))
     });
 
-    if (options.folderResolver) {
+    let manifestKey = options.keyResolver(file.path);
+    if (typeof options.folderResolver === "function") {
       uploadParams.folder = options.folderResolver(file.path);
     }
 
@@ -45,9 +50,7 @@ module.exports = options => {
               file.path,
               path.extname(file.path)
             ),
-            manifest_key: uploadParams.folder
-              ? path.join(uploadParams.folder, path.basename(file.path))
-              : path.basename(file.path)
+            manifest_key: manifestKey
           });
           return cb(null, file);
         })
@@ -66,9 +69,7 @@ module.exports = options => {
               file.path,
               path.extname(file.path)
             ),
-            manifest_key: uploadParams.folder
-              ? path.join(uploadParams.folder, path.basename(file.path))
-              : path.basename(file.path)
+            manifest_key: manifestKey
           });
           return cb(null, file);
         })
