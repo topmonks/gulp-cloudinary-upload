@@ -26,7 +26,6 @@ module.exports = options => {
 
     if (options.folderResolver) {
       uploadParams.folder = options.folderResolver(file.path);
-      uploadParams.public_id = path.join(uploadParams.folder, uploadParams.public_id);
     }
 
     if (file.isNull()) {
@@ -42,7 +41,13 @@ module.exports = options => {
           }
 
           file.cloudinary = Object.assign(result, {
-            original_filename: path.basename(file.path, path.extname(file.path))
+            original_filename: path.basename(
+              file.path,
+              path.extname(file.path)
+            ),
+            manifest_key: uploadParams.folder
+              ? path.join(uploadParams.folder, path.basename(file.path))
+              : path.basename(file.path)
           });
           return cb(null, file);
         })
@@ -57,7 +62,13 @@ module.exports = options => {
           }
 
           file.cloudinary = Object.assign(result, {
-            original_filename: path.basename(file.path, path.extname(file.path))
+            original_filename: path.basename(
+              file.path,
+              path.extname(file.path)
+            ),
+            manifest_key: uploadParams.folder
+              ? path.join(uploadParams.folder, path.basename(file.path))
+              : path.basename(file.path)
           });
           return cb(null, file);
         })
@@ -93,8 +104,9 @@ module.exports.manifest = options => {
         return cb();
       }
 
-      const basename = path.basename(file.path);
-      manifest[basename] = file.cloudinary;
+      const key = file.cloudinary.manifest_key;
+      delete file.cloudinary.manifest_key;
+      manifest[key] = file.cloudinary;
       cb();
     },
     function(cb) {
