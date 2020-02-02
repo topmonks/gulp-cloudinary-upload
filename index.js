@@ -26,6 +26,7 @@ module.exports = options => {
 
     if (options.folderResolver) {
       uploadParams.folder = options.folderResolver(file.path);
+      uploadParams.public_id = path.join(uploadParams.folder, uploadParams.public_id);
     }
 
     if (file.isNull()) {
